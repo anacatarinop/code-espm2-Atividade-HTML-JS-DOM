@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Exercicio 3</title>
+    <style>
+        .main{
+            max-width: 1800px;
+            min-width: 1800px;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .id{
+            width: 50px;
+            text-align: center;
+        }
+
+        
+        .nome{
+            width: 100px;
+            text-align: center;
+        }
+
+        .email{
+            width: 150px;
+            text-align: center;
+        }
+
+        .idade{
+            width: 50px;
+            text-align: center;
+        }
+
+        .cargo{
+            width: 150px;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="main container-sm " id="main">
+        <button class="btn btn-primary" id="btn" onclick="preencherTabela()">Preencher Tabela</button>
+        <br>
+        <div>
+            <table id="tabela">
+                <tr>
+                  <th class="id">Id</th>
+                  <th class="nome">Nome</th>
+                  <th class="email">E-mail</th>
+                  <th class="idade">Idade</th>
+                  <th class="cargo">Cargo</th>
+                </tr>
+                
+              </table>
+        </div>
+    </div>
+
+    <script>
+
+    function preencherTabela(){
+        const pessoas = [
+            {
+                id:1,
+                nome: "André",
+                email: "andre@espm.br",
+                idade: 36,
+                cargo:"Professor"
+            },
+            {
+                id:2,
+                nome: "José",
+                email: "jose@espm.br",
+                idade: 30,
+                cargo:"Piloto"
+            },
+            {
+                id:3,
+                nome: "Rafael",
+                email: "rafael@espm.br",
+                idade: 22,
+                cargo:"Presidente"
+            },
+            {
+                id:4,
+                nome: "Silva",
+                email: "silva@espm.br",
+                idade: 26,
+                cargo:"Soldador"
+            },
+            {
+                id:5,
+                nome: "Gabriel",
+                email: "gabriel@espm.br",
+                idade: 21,
+                cargo:"Soldado"
+            },
+            {
+                id:6,
+                nome: "Ze",
+                email: "ze@espm.br",
+                idade: 11,
+                cargo:"Aluno"
+            },
+            {
+                id:7,
+                nome: "Vendrame",
+                email: "vendrame@espm.br",
+                idade: 23,
+                cargo:"Tg"
+            },
+            {
+                id:8,
+                nome: "Stany",
+                email: "stany@espm.br",
+                idade: 26,
+                cargo:"Trabalhador"
+            },
+            {
+                id:9,
+                nome: "Igor",
+                email: "igor@espm.br",
+                idade: 26,
+                cargo:"Professor"
+            },
+            {
+                id:10,
+                nome: "Ademir",
+                email: "ademir@espm.br",
+                idade: 26,
+                cargo:"Orientador"
+            }
+        ]
+    
+        pessoas.forEach((p)=>{
+
+            const linha = document.createElement('tr')
+            
+            Object.keys(p).forEach((key,index)=>{
+                let dadosLinha = document.createElement('td');
+                dadosLinha.innerHTML = p[key]
+                linha.appendChild(dadosLinha)
+            })
+            document.getElementById("tabela").append(linha)
+            document.getElementById("btn").disabled = true;
+        })
+    }
+
+    </script>
+</body>
+</html>

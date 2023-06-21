@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Exercicio 1</title>
+
+    <style>
+        .main{
+            max-width: 1800px;
+            min-width: 1800px;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main container-sm " id="main">
+        
+        <label for="valorA"><b>Valor A</b></label><br>
+        <input class="form-control-lg" id="valorA" type="number"><br>
+    
+        <label for="valorB"><b>Valor B</b></label><br>
+        <input class="form-control-lg" id="valorB" type="number"><br>
+    
+        <label for="valorC"><b>Valor C</b></label><br>
+        <input class="form-control-lg" id="valorC" type="number"><br>
+    
+        <label for="valorD"><b>Valor D</b></label><br>
+        <input class="form-control-lg" id="valorD" type="number"><br>
+    
+        <label for="valorE"><b>Valor E</b></label><br>
+        <input class="form-control-lg" id="valorE" type="number"><br>
+        <br>
+        <button class="btn btn-primary" onclick="gerenciarInput()">Verificar Faltante</button>
+
+        <div id="Resposta">
+
+        </div>
+    </div>
+    
+    <script>
+
+        
+        function gerenciarInput(){
+            const newDiv = document.getElementById("Resposta")
+
+            const A = parseInt(document.getElementById("valorA").value)
+            const B = parseInt(document.getElementById("valorB").value)
+            const C = parseInt(document.getElementById("valorC").value)
+            const D = parseInt(document.getElementById("valorD").value)
+            const E = parseInt(document.getElementById("valorE").value)
+    
+            var numeros = [A,B,C,D,E]
+            
+            console.log(numeros)
+
+            for(let i = 0; i < 5; i++){
+                if(isNaN(numeros[i])){
+                    newDiv.innerHTML = "Erro, valor(es) NaN"
+                    return
+                }
+                if( numeros[i] < 1 || numeros[i] > 6){
+                    newDiv.innerHTML = "Erro, valores fora do intervalo"
+                    return
+                }
+            }
+            var numerosFalta = []
+    
+            for(let i = 1; i<= 6; i++){
+                if(!numeros.includes(i)){
+                    numerosFalta.push(i)
+                }
+            }
+
+            newDiv.appendChild(document.createTextNode("Esta faltando os numeros: "))
+            var saida = "Falta o valor: "
+            numerosFalta.forEach(numero => saida+=`${numero} \t`)
+            newDiv.innerHTML = saida
+        
+        }
+
+    </script>
+</body>
+</html>

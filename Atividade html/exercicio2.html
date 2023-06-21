@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Exercicio 2</title>
+    <style>
+        .main{
+            
+            max-width: 1800px;
+            min-width: 1800px;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+        }
+        .botoes{
+           
+            display: flex;
+            flex-direction: column;
+            width: 10%;
+        }
+
+        .linha{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 4px;
+        }
+
+        .linha2{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .btn0{
+            margin-left: 13px;
+        }
+        .btnvalidar{
+            margin-left: 23px;
+            width: 90px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="main container-sm " id="main">
+        <div>
+            <label >Senha</label>
+            <input id="senha" type="password" value="">
+        </div>
+        <div class="botoes">
+            <div class="linha">
+                <input class="btn" type="button" value="1" onclick="addToInput(value)">
+                <input class="btn" type="button" value="2" onclick="addToInput(value)">
+                <input class="btn" type="button" value="3" onclick="addToInput(value)">
+            </div>
+            <div class="linha">
+                <input class="btn" type="button" value="4" onclick="addToInput(value)">
+                <input class="btn" type="button" value="5" onclick="addToInput(value)">
+                <input class="btn" type="button" value="6" onclick="addToInput(value)">
+            </div>
+            <div class="linha">
+                <input class="btn" type="button" value="7" onclick="addToInput(value)">
+                <input class="btn" type="button" value="8" onclick="addToInput(value)">
+                <input class="btn" type="button" value="9" onclick="addToInput(value)">
+            </div>
+            <div class="linha2">
+
+                <input class="btn btn0" type="button" value="0" onclick="addToInput(value)">
+                <button class="btn-primary btnvalidar" onclick="validarSenha()">Validar</button>
+                
+            </div>
+        </div>
+
+
+        <div id="Resposta">
+
+        </div>
+    </div>
+
+    <script>
+        function addToInput(value) {
+          const saida = document.getElementById("senha")
+          saida.value+=value
+        }
+
+        function validarSenha(){
+            const newDiv = document.getElementById("Resposta")
+            const senha = document.getElementById("senha").value 
+            if(senha == "1234"){
+                //newDiv.appendChild(document.createTextNode("Senha correta"))
+                newDiv.innerHTML = "Senha correta"
+            }else{
+                //newDiv.appendChild(document.createTextNode("Senha incorreta"))
+                newDiv.innerHTML = "Senha incorreta"
+            }
+        }
+
+        </script>
+</body>
+</html>
